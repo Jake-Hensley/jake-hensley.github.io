@@ -320,10 +320,9 @@
       <span class="l1">Jake</span>
       <span class="l2">Hensley</span>
     </div>
-    <p class="role-line"><b>Firmware &amp; Embedded Engineer.</b> Robotics, flight software, and the protocols that hold them together.</p>
+    <p class="role-line"><b>Firmware &amp; Embedded Engineer.</b></p>
     <div class="hero-meta">
       <span class="chip">Boston, MA</span>
-      <span class="chip">Embedded · RTOS</span>
       <span class="chip">C / C++ / Python</span>
     </div>
   </div>
@@ -342,7 +341,7 @@
     <article class="project">
       <div class="project-head">
         <div>
-          <div class="tag">Generate Product Design Studio · Sole Firmware Engineer</div>
+          <div class="tag">Generate Product Design Studio · Firmware Engineer</div>
           <h3>Growver</h3>
           <div class="role">Autonomous tree-planting rover · 14-engineer team</div>
         </div>
@@ -360,19 +359,19 @@
 
           <div class="detail-block">
             <h4>Motor abstraction</h4>
-            <p>The rover has 7 unique motors, but the rest of the code never touches their wiring. Each motor is a struct that records its gearbox ratio, current internal state, the pins it lives on, and the physical driver it uses. All of that hides behind just two API calls — <code>MoveBrushlessMotor()</code> and <code>MoveStepperMotor()</code> — so any motor can be commanded with one line. That single abstraction is what made the rest of development fast.</p>
+            <p>The rover has 7 unique motors, but the rest of the code never touches their wiring. Each motor is a struct that records its gearbox ratio, current internal state, the pins it lives on, and the physical driver it uses. All of that hides behind just two API calls — <code>set_motor_speed()</code> and <code>set_step_motor()</code> — so any motor can be commanded with one line. </p>
           </div>
 
           <div class="detail-block">
             <h4>State machine</h4>
             <p>A 6-state finite state machine drives the mission, moving through the phases in order:</p>
             <ul class="feat-list">
-              <li><b>Bootup</b> — bring the system up and initialize hardware.</li>
-              <li><b>Idle</b> — wait, ready for an operator command.</li>
-              <li><b>Drive</b> — locomotion across the terrain.</li>
-              <li><b>Dig</b> — break ground for the seedling.</li>
-              <li><b>Place</b> — set the seedling into the hole.</li>
-              <li><b>Tamp</b> — dispense soil and compact it.</li>
+              <li><b>Bootup</b> — bring the system up and initialize hardware</li>
+              <li><b>Idle</b> — wait, ready for an operator command</li>
+              <li><b>Drive</b> — movement across the terrain</li>
+              <li><b>Dig</b> — break ground for the seedling</li>
+              <li><b>Place</b> — set the seedling into the hole</li>
+              <li><b>Tamp</b> — dispense soil and compact it</li>
             </ul>
           </div>
 
@@ -384,7 +383,7 @@
           <div class="detail-block">
             <h4>Stack</h4>
             <div class="stack">
-              <span>ESP32</span><span>Zephyr RTOS</span><span>Devicetree</span><span>C</span><span>Multithreading</span><span>I²C</span><span>FSM</span><span>BMS</span><span>Li-ion 24-cell</span>
+              <span>ESP32</span><span>Zephyr RTOS</span><span>Devicetree</span><span>C</span><span>Multithreading</span><span>I²C</span><span>FSM</span><span>BMS</span>
             </div>
           </div>
         </div>
@@ -431,7 +430,7 @@
           <div class="detail-block">
             <h4>Stack</h4>
             <div class="stack">
-              <span>ESP32</span><span>C</span><span>I²C</span><span>RF</span><span>Embedded</span>
+              <span>Microcontroller</span><span>C</span><span>I²C</span><span>RF</span><span>Embedded</span>
             </div>
           </div>
         </div>
@@ -460,6 +459,7 @@
           <ul>
             <li>Designed a system to unlock a deadbolt and doorknob using <b>two servos</b> driven by an Arduino running C++.</li>
             <li>Uses an <b>NFC reader and tags</b> to dictate when the door should unlock.</li>
+            <li>Still in the design phase.</li>
           </ul>
           <div class="stack">
             <span>Arduino</span><span>C++</span><span>NFC / RFID</span><span>Servos</span>
