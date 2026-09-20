@@ -399,49 +399,50 @@
       </div>
     </article>
 
-    <!-- ===================== PROJECT 2: RF COMM DEVICE ===================== -->
-    <article class="project">
-      <div class="project-head">
-        <div>
-          <div class="tag">Senior Capstone · Firmware Engineer</div>
-          <h3>RF Communication Device</h3>
-          <div class="role">Wireless embedded device · Engineering Design phase</div>
-        </div>
-        <span class="when">Jul 2026 – Present</span>
+    <!-- ===================== PROJECT 2: BEACON (BACKSCATTER WEARABLE) ===================== -->
+<article class="project">
+  <div class="project-head">
+    <div>
+      <div class="tag">Senior Capstone · Firmware Engineer</div>
+      <h3>BEACON — Battery-Free Cardiac Wearable</h3>
+      <div class="role">Backscatter BLE wearable · Engineering design phase</div>
+    </div>
+    <span class="when">Jul 2026 – Present</span>
+  </div>
+
+  <div class="project-body">
+    <div class="project-copy">
+      <p class="summary">My senior capstone: <b>BEACON</b> (Backscatter-Enabled Ambient Cardiac Observation Node), a <b>battery-free wearable</b> that streams heart-rate data to a smartphone over Bluetooth Low Energy by <b>reflecting and modulating an externally supplied 2.4&nbsp;GHz carrier</b> instead of generating its own RF signal — eliminating the active RF generation that normally consumes over half of a wearable's power budget. As firmware engineer I own the embedded side: C firmware on Nordic SoCs, with I²C coordinating the sensor and peripherals.</p>
+
+      <div class="detail-block">
+        <h4>Where it stands</h4>
+        <p>Active engineering design — defining the two-part architecture, selecting components, and laying out the firmware. The system splits into a <b>USB phone module</b> (nRF52840) that emits the unmodulated carrier and receives, decodes, and forwards BLE packets to a companion app, and a <b>wearable tag</b> (nRF52832) that backscatters the carrier, harvests energy from it, and reads heart rate via a reflective PPG sensor. My focus is the embedded firmware in C, using I²C to talk to the analog front end and driving the RF switch that does the modulation.</p>
       </div>
 
-      <div class="project-body">
-        <div class="project-copy">
-          <p class="summary">My senior capstone: an <b>RF communication device</b> currently in the engineering design phase. The plan centers on an microcontroller programmed in C, with peripheral devices coordinated over an I²C bus.</p>
+            <div class="detail-block">
+        <h4>Firmware direction</h4>
+        <ul class="feat-list">
+          <li><b>Phone-module FSM (nRF52840):</b> IDLE → USB_READY → SCANNING → BLE_CONNECTED → FORWARDING, streaming decoded packets to the companion app over USB.</li>
+          <li><b>Backscatter tag FSM (nRF52832):</b> SLEEP → WAKE → PROCESS → TRANSMIT → SLEEP, running on harvested RF energy with burst-mode PPG capture.</li>
+          <li><b>Microsecond-precise modulation:</b> hardware timers driving the RF switch through <b>PPI + GPIOTE</b> to hit BLE's 1&nbsp;Mbps / 1&nbsp;µs bit timing without CPU bit-banging.</li>
+          <li><b>Standards-compatible uplink</b> shaped to look like a normal BLE packet, so it's decodable by unmodified BLE hardware.</li>
+        </ul>
+      </div>
 
-          <div class="detail-block">
-            <h4>Where it stands</h4>
-            <p>The project is in active engineering design — defining the architecture, selecting components, and laying out how the firmware will drive the radio link and the sensors and peripherals around it. As the firmware engineer I’m focused on the embedded side: a ZephyrOS C application on the mcirocontroller with I²C as the backbone for talking to attached hardware.</p>
-          </div>
-
-          <div class="detail-block">
-            <h4>Planned direction</h4>
-            <ul class="feat-list">
-              <li><b>Microcontroller in C</b> as the core controller for the device.</li>
-              <li><b>I²C</b> to coordinate sensors and peripherals on the board.</li>
-              <li>An RF link as the headline capability — the design work this fall will turn that goal into a working prototype.</li>
-            </ul>
-          </div>
-
-          <div class="detail-block">
-            <h4>Stack</h4>
-            <div class="stack">
-              <span>Microcontroller</span><span>C</span><span>I²C</span><span>RF</span><span>Embedded</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-media">
-          <span class="media-label">Gallery</span>
-          <img class="photo" src="placeholder.jpeg" alt="placeholder">
+      <div class="detail-block">
+        <h4>Stack</h4>
+        <div class="stack">
+          <span>Nordic nRF52840/nRF52832</span><span>C</span><span>Zephyr / nRF Connect SDK</span><span>I²C</span><span>BLE</span><span>Backscatter / RF</span><span>Embedded</span>
         </div>
       </div>
-    </article>
+    </div>
+
+    <div class="project-media">
+      <span class="media-label">Gallery</span>
+      <img class="photo" src="placeholder.jpeg" alt="placeholder">
+    </div>
+  </div>
+</article>
 
     <!-- ===================== EARLIER PROJECTS (COMPACT) ===================== -->
     <div class="seclabel sub">
